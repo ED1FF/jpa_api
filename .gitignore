@@ -1,4 +1,3 @@
-app/__pycache__/
 /venv
-app/config/__pycache__
-app/migrations/models/__pycache__
+**/__pycache__/
+
