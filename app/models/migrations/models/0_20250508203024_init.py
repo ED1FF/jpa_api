@@ -7,7 +7,9 @@ async def upgrade(db: BaseDBAsyncClient) -> str:
     "id" UUID NOT NULL PRIMARY KEY,
     "username" VARCHAR(50) NOT NULL UNIQUE,
     "email" VARCHAR(254) NOT NULL UNIQUE,
-    "password" VARCHAR(128) NOT NULL
+    "password" VARCHAR(128) NOT NULL,
+    "created_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 CREATE INDEX IF NOT EXISTS "idx_users_usernam_266d85" ON "users" ("username");
 CREATE INDEX IF NOT EXISTS "idx_users_email_133a6f" ON "users" ("email");
