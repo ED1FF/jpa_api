@@ -1,19 +1,11 @@
-from typing import Union
 from fastapi import FastAPI
-from tortoise.contrib.fastapi import register_tortoise
 
+from app.config.db import init_db
 
 app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "Worldd"}
 
-# Register Tortoise ORM with PostgreSQL
-register_tortoise(
-    app,
-    db_url="postgres://postgres:postgres@db:5432/jpa_development",
-    modules={"models": ["models"]},
-    generate_schemas=True,
-    add_exception_handlers=True,
-)
+init_db(app)

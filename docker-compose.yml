@@ -1,5 +1,3 @@
-version: "0.01"
-
 services:
   api:
     container_name: api
@@ -8,6 +6,7 @@ services:
     command: uvicorn main:app --host 0.0.0.0 --reload
     environment:
       DEBUG: 1
+      PYTHONPATH: /code
     volumes:
       - ./app:/code/app
     ports:
