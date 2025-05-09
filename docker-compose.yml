@@ -19,6 +19,13 @@ services:
     container_name: postgres
     image: postgres:17.4
     restart: always
+    command: >
+      postgres
+      -c log_statement=none
+      -c log_min_duration_statement=1
+      -c log_connections=off
+      -c log_disconnections=off
+      -c log_line_prefix='%t [%p] '
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
