@@ -1,6 +1,15 @@
 import uuid
+import strawberry
 from tortoise import fields
 from tortoise.models import Model
+
+@strawberry.type
+class UserType:
+    id: str
+    username: str
+    email: str
+    created_at: str
+    updated_at: str
 
 class User(Model):
     id = fields.UUIDField(pk=True, default=uuid.uuid4, index=True)
