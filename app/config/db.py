@@ -1,9 +1,10 @@
 from tortoise.contrib.fastapi import register_tortoise
+from app.config.settings import Settings
 
 
 TORTOISE_ORM = {
     "connections": {
-        "default": "postgres://postgres:postgres@db:5432/jpa_development", # TODO: Use ENV
+        "default": Settings().database_url,
     },
     "apps": {
         "models": {
